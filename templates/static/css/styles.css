@@ -1,0 +1,22 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+@media (max-width:1000px) {
+    .card-widgets{
+        width: 25%;
+    }
+}
+.card {
+    display: flex;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+

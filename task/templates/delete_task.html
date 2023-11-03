@@ -1,0 +1,25 @@
+{% extends "partials/base.html" %}
+
+{% block cabecalho %}
+
+{% endblock cabecalho %}
+
+{% block conteudo %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Delete Task</h1> 
+
+                <a href="{% url 'task' %}"><button class="btn btn-warning">Voltar</button></a>
+            </div>
+
+            <form action="" method="POST">{% csrf_token %}
+                <label>Você tem certeza que deseja deletar a task?</label>
+                <p>Task: {{ tasks }}?</p>
+         
+                <br>
+                <input type="submit" class=" btn btn-danger form-control" value="Confirmar">
+            </form>
+        </div>
+    </div>
+{% endblock conteudo %}

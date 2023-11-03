@@ -1,0 +1,38 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block cabecalho %}
+    <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
+{% endblock cabecalho %}
+
+{% block conteudo %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header ">
+               <h1>TODO</h1> 
+               
+               <a href="{% url 'add_task' %}"><button class="btn btn-success" style="height: 40px; width: 70px;">Add</button></a>
+
+            </div>
+            {% if tasks %}
+                {% for task in tasks %}
+                    <div class="card-body">
+                        <div class="card-title">
+                            <span><a href="{% url 'read_task' task.id %}">{{ task.nome }}</a></span>
+                        </div>
+                        <div class="card-widgets">
+                            <button class="btn btn-warning"><a href="{% url 'update_task' task.id %}">Editar</a></button>
+                            <button class="btn btn-danger"><a href="{% url 'delete_task' task.id %}">Deletar</a></button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="card-body">
+                    <div class="card-title">
+                        <span style="font-weight: 100; color: gray;">Você ainda não possui Tasks.</span>
+                    </div>
+                </div>
+            {% endif %}    
+        </div>
+    </div>
+{% endblock conteudo %}

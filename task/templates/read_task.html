@@ -1,0 +1,22 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block cabecalho %}
+<link rel="stylesheet" href="{% static 'css/read.css' %}">
+{% endblock cabecalho %}
+
+{% block conteudo %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header"><h2>Read Task</h2></div>
+            <div class="card-body1">
+                <h3>Titulo: {{ tasks.nome }}</h3>
+                <hr>
+                <p>Descrição: {{ tasks.descricao }}</p>
+
+                <p>Data de inicio: {{tasks.data_inicio}}</p>
+                <p>Data final: {{tasks.data_final}}</p>
+            </div>
+        </div>
+    </div>
+{% endblock conteudo %}
